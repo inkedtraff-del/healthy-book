@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ваш заказ готов!</title>
+    <style>
+        body { background-color: #f9f9f9; display: flex; justify-content: center; align-items: center; height: 100vh; margin: 0; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; }
+        .thanks-card { background: white; padding: 40px 30px; border-radius: 20px; box-shadow: 0 10px 30px rgba(0,0,0,0.05); text-align: center; max-width: 400px; width: 90%; }
+        .icon-check { width: 70px; height: 70px; background: #8e44ad; color: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 35px; margin: 0 auto 20px; }
+        h1 { color: #333; font-size: 24px; margin-bottom: 15px; text-transform: uppercase; }
+        p { color: #555; font-size: 17px; line-height: 1.6; margin-bottom: 30px; }
+        .download-btn { background: #8e44ad; color: white; text-decoration: none; padding: 20px 30px; border-radius: 50px; font-weight: bold; display: block; font-size: 18px; box-shadow: 0 4px 15px rgba(142, 68, 173, 0.3); transition: all 0.2s; border: none; width: 100%; cursor: pointer; }
+        .download-btn:active { transform: scale(0.96); }
+        .footer-note { margin-top: 25px; font-size: 13px; color: #999; }
+    </style>
+
+    <script>
+      !function(f,b,e,v,n,t,s)
+      {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+      n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+      if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+      n.queue=[];t=b.createElement(e);t.async=!0;
+      t.src=v;s=b.getElementsByTagName(e)[0];
+      s.parentNode.insertBefore(t,s)}(window, document,'script',
+      'https://connect.facebook.net/en_US/fbevents.js');
+      
+      // Инициализация пикселя
+      fbq('init', '954112840430531'); 
+      fbq('track', 'PageView');
+      
+      // ФИКСАЦИЯ ПРОДАЖИ (Срабатывает мгновенно при загрузке страницы)
+      fbq('track', 'Purchase', {
+        value: 9.99,
+        currency: 'USD',
+        content_name: 'Книга 130 рецептов + 3 бонуса',
+        content_type: 'product'
+      });
+    </script>
+    <noscript>
+      <img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=954112840430531&ev=PageView&noscript=1" />
+    </noscript>
+    </head>
+<body>
+
+    <div class="thanks-card">
+        <div class="icon-check">✓</div>
+        <h1>ОПЛАТА ПРОШЛА!</h1>
+        <p>Ваша книга «130 рецептов» и бонусы готовы. Нажмите кнопку ниже, чтобы сохранить их на телефон:</p>
+        
+        <button onclick="downloadAndRedirect()" class="download-btn">
+            СКАЧАТЬ МАТЕРИАЛЫ (АРХИВ)
+        </button>
+        
+        <div class="footer-note">
+            После нажатия начнется загрузка, и вы вернетесь на главную страницу.
+        </div>
+    </div>
+
+    <script>
+        function downloadAndRedirect() {
+            // 1. Прямая ссылка на скачивание с Google Диска
+            const fileUrl = "https://drive.google.com/uc?export=download&id=1OIATgv95T5Pr4r9KBM4TdDn4FziXHYAO";
+            
+            // 2. Инициируем скачивание
+            const link = document.createElement('a');
+            link.href = fileUrl;
+            link.target = "_blank"; 
+            document.body.appendChild(link);
+            link.click();
+            document.body.removeChild(link);
+
+            // 3. Возврат на основной лендинг через 3 секунды
+            setTimeout(function() {
+                window.location.href = "index.html"; 
+            }, 3000);
+        }
+    </script>
+
+</body>
+</html>

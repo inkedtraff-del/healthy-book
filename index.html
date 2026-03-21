@@ -1,0 +1,559 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>130 Рецептов от Диетолога</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+    <div class="mobile-container">
+        
+        <div class="top-badge">Электронная книга</div>
+
+        <header class="main-header reveal">
+            <h1 class="title-purple">130 уникальных рецептов</h1>
+            <h2 class="title-dark">от диетолога</h2>
+        </header>
+
+        <div class="product-gallery-wrapper reveal">
+            <div class="swiper mainProductSwiper">
+                <div class="swiper-wrapper">
+                    <div class="swiper-slide">
+                        <img src="assets/img1.jpg" alt="Обложка">
+                    </div>
+                    <div class="swiper-slide">
+                        <img src="assets/img2.jpg" alt="Разворот 1">
+                    </div>
+                    <div class="swiper-slide">
+                        <img src="assets/img3.jpg" alt="Разворот 2">
+                    </div>
+                    <div class="swiper-slide">
+                        <img src="assets/img4.jpg" alt="Разворот 3">
+                    </div>
+                    <div class="swiper-slide">
+                        <img src="assets/img5.jpg" alt="Разворот 4">
+                    </div>
+                </div>
+            </div>
+
+            <div class="thumbs-row">
+                <div class="thumb-box active-thumb" onclick="goToSlide(0)"><img src="assets/img1.jpg"></div>
+                <div class="thumb-box" onclick="goToSlide(1)"><img src="assets/img2.jpg"></div>
+                <div class="thumb-box" onclick="goToSlide(2)"><img src="assets/img3.jpg"></div>
+                <div class="thumb-box" onclick="goToSlide(3)"><img src="assets/img4.jpg"></div>
+                <div class="thumb-box" onclick="goToSlide(4)"><img src="assets/img5.jpg"></div>
+            </div>
+        </div>
+
+        <section class="offer-section reveal">
+            <h3 class="offer-title">
+                БЛЮДА, КОТОРЫЕ ПОМОГУТ ВАМ СОХРАНИТЬ <span class="text-purple">ЗДОРОВЬЕ, ЭНЕРГИЮ И ХОРОШЕЕ НАСТРОЕНИЕ</span> КАЖДЫЙ ДЕНЬ
+            </h3>
+            <ul class="benefits-list">
+                <li><span class="check-icon">✔</span> Готовьте вкусные блюда даже без опыта</li>
+                <li><span class="check-icon">✔</span> Быстрые рецепты на 10–20 минут — для занятых людей</li>
+                <li><span class="check-icon">✔</span> Сбалансированные блюда помогут оставаться сытыми, энергичными и в форме</li>
+                <li><span class="check-icon">✔</span> Никаких сложных ингредиентов — всё можно купить в обычном супермаркете</li>
+                <li><span class="check-icon">✔</span> Идеально для семьи (порция на 1 человека, просто умножьте на 2–4)</li>
+                <li><span class="check-icon">✔</span> Пошаговые рецепты, с которыми вы точно всё сделаете правильно</li>
+            </ul>
+            <div class="bonus-block">
+                <p class="bonus-label">БОНУСЫ ВКЛЮЧАЮТ:</p>
+                <p class="bonus-item"><span class="star-icon">★</span> <strong>Список покупок</strong>, 12 Полезных соусов</p>
+                <p class="bonus-item"><span class="star-icon">★</span> 10 Полезных Смузи</p>
+            </div>
+            <div class="price-block">
+                <span class="current-price">$9,99</span>
+                <span class="old-price">$50</span>
+            </div>
+            
+            <div class="btn-wrapper">
+                <button class="cta-button" onclick="scrollToTarget()">ПОЛУЧИТЬ КНИГУ СЕЙЧАС</button>
+            </div>
+
+            <div class="footer-info">
+                <img src="assets/payments.png" alt="Оплата картами" class="payment-img" loading="lazy">
+                <div class="rating">
+                    <span class="stars">⭐⭐⭐⭐⭐</span>
+                    <span class="rating-text">4.8/5 (7564+ Отзывов)</span>
+                </div>
+            </div>
+        </section>
+
+        <section class="categories-section reveal">
+            <div class="category-card"><img src="assets/1.png" loading="lazy"><div class="card-text"><span class="count-purple">30+</span><span class="category-name">ЗАВТРАКОВ</span></div></div>
+            <div class="category-card"><img src="assets/2.png" loading="lazy"><div class="card-text"><span class="count-purple">30+</span><span class="category-name">ОБЕДОВ</span></div></div>
+            <div class="category-card"><img src="assets/3.png" loading="lazy"><div class="card-text"><span class="count-purple">25+</span><span class="category-name">УЖИНОВ</span></div></div>
+            <div class="category-card"><img src="assets/4.png" loading="lazy"><div class="card-text"><span class="count-purple">20+</span><span class="category-name">ПЕРЕКУСОВ</span></div></div>
+            <div class="category-card"><img src="assets/5.png" loading="lazy"><div class="card-text"><span class="count-purple">15+</span><span class="category-name">ВЫПЕЧКИ</span></div></div>
+            <div class="category-card"><img src="assets/6.png" loading="lazy"><div class="card-text"><span class="count-purple">10+</span><span class="category-name">ДЕСЕРТОВ</span></div></div>
+        </section>
+
+        <section class="middle-btn-section reveal">
+            <button class="cta-button" onclick="scrollToTarget()">ПОЛУЧИТЬ КНИГУ СЕЙЧАС</button>
+        </section>
+
+        <section class="comparison-section reveal">
+            <h3 class="comparison-title">
+                В ЧЕМ <span class="text-purple">ОТЛИЧИЕ</span>:<br>
+                ПИТАНИЕ БЕЗ КНИГИ <span class="text-purple">VS</span><br>
+                ПИТАНИЕ С 130 ПОЛЕЗНЫМИ РЕЦЕПТАМИ
+            </h3>
+
+            <div class="compare-card bad-card">
+                <img src="assets/bez.png" alt="Без книги" class="compare-img" loading="lazy">
+                <h4 class="card-title-bad">БЕЗ КНИГИ</h4>
+                <ul class="bad-list">
+                    <li><span class="cross-icon">✖</span> Одни и те же блюда каждый день</li>
+                    <li><span class="cross-icon">✖</span> Мало энергии, постоянная тяга к сладкому</li>
+                    <li><span class="cross-icon">✖</span> Пресный вкус, ничего вкусного</li>
+                    <li><span class="cross-icon">✖</span> Отсутствие чёткого плана питания</li>
+                    <li><span class="cross-icon">✖</span> Постоянные расходы на доставку еды</li>
+                    <li><span class="cross-icon">✖</span> Ежедневный стресс: «Что приготовить сегодня?»</li>
+                </ul>
+            </div>
+
+            <div class="vs-circle">VS</div>
+
+            <div class="compare-card good-card">
+                <img src="assets/s.png" alt="С книгой" class="compare-img" loading="lazy">
+                <h4 class="card-title-good">С КНИГОЙ</h4>
+                <ul class="good-list">
+                    <li><span class="check-icon-good">✔</span> 130+ вкусных и сбалансированных рецептов</li>
+                    <li><span class="check-icon-good">✔</span> Готовятся за 10–20 минут</li>
+                    <li><span class="check-icon-good">✔</span> Простые ингредиенты → насыщенный вкус</li>
+                    <li><span class="check-icon-good">✔</span> Больше энергии, лёгкость и лучшее пищеварение</li>
+                    <li><span class="check-icon-good">✔</span> Большой выбор: боулы, салаты, супы, основные блюда, десерты</li>
+                    <li><span class="check-icon-good">✔</span> Здоровое питание становится простым, вкусным и приятным</li>
+                </ul>
+            </div>
+
+            <div class="btn-wrapper">
+                <button class="cta-button" onclick="scrollToTarget()">
+                    ПОЛУЧИТЬ КНИГУ СЕЙЧАС!
+                    <span class="btn-price">$9,99</span>
+                </button>
+            </div>
+        </section>
+
+        <section class="recipes-gallery reveal">
+            <h3 class="gallery-title">
+                ПРИМЕРЫ БЛЮД, КОТОРЫЕ ПОДАРЯТ ВАМ <span class="text-purple">ЗДОРОВЬЕ, ЭНЕРГИЮ И НАСЛАЖДЕНИЕ</span>
+            </h3>
+            <div class="gallery-grid">
+                <img src="assets/receipt1.webp" loading="lazy">
+                <img src="assets/receipt2.webp" loading="lazy">
+                <img src="assets/receipt3.webp" loading="lazy">
+                <img src="assets/receipt4.webp" loading="lazy">
+                <img src="assets/receipt5.webp" loading="lazy">
+            </div>
+        </section>
+
+        <section class="author-section reveal">
+            <img src="assets/author1.png" alt="Автор книги" class="author-img" loading="lazy">
+            <h3 class="author-title">
+                Питайтесь лучше каждый день с рецептами, которые можно приготовить за 10–20 минут
+            </h3>
+            <p class="author-text">
+                Домашние блюда — это настоящий ключ к более здоровому питанию, лучшему самочувствию и поддержанию формы.
+            </p>
+            <p class="author-text">
+                Но когда впереди длинный рабочий день, плотный график и вечное <strong>«Что приготовить сегодня?»</strong> — придерживаться здорового рациона кажется почти нереальным.
+            </p>
+            <p class="author-text">
+                Именно для этого я создала эту книгу.
+            </p>
+            <p class="author-text">
+                <strong>“130 <span class="text-purple">полезных рецептов</span>”</strong> — это готовый план для лёгкого и сбалансированного питания.
+            </p>
+            <p class="author-text">
+                Внутри вы найдёте <strong><span class="text-purple">простую систему</span></strong>, которой пользуются занятые люди, родители, студенты и профессионалы, чтобы экономить время, питаться разумнее и, наконец, наслаждаться здоровыми блюдами без стресса.
+            </p>
+        </section>
+
+        <section class="testimonials-section reveal">
+            <h3 class="section-title-center">ОТЗЫВЫ <span class="text-purple">КЛИЕНТОВ</span></h3>
+            <div class="swiper testimonialSwiper">
+                <div class="swiper-wrapper">
+                    <div class="swiper-slide"><img src="assets/o1.png" class="chat-screen" loading="eager"></div>
+                    <div class="swiper-slide"><img src="assets/o2.png" class="chat-screen" loading="lazy"></div>
+                    <div class="swiper-slide"><img src="assets/o3.png" class="chat-screen" loading="lazy"></div>
+                    <div class="swiper-slide"><img src="assets/o4.png" class="chat-screen" loading="lazy"></div>
+                    <div class="swiper-slide"><img src="assets/o5.png" class="chat-screen" loading="lazy"></div>
+                    <div class="swiper-slide"><img src="assets/o6.png" class="chat-screen" loading="lazy"></div>
+                    <div class="swiper-slide"><img src="assets/o7.png" class="chat-screen" loading="lazy"></div>
+                    <div class="swiper-slide"><img src="assets/o8.png" class="chat-screen" loading="lazy"></div>
+                    <div class="swiper-slide"><img src="assets/o9.png" class="chat-screen" loading="lazy"></div>
+                    <div class="swiper-slide"><img src="assets/o10.png" class="chat-screen" loading="lazy"></div>
+                    <div class="swiper-slide"><img src="assets/o11.png" class="chat-screen" loading="lazy"></div>
+                    <div class="swiper-slide"><img src="assets/o12.png" class="chat-screen" loading="lazy"></div>
+                    <div class="swiper-slide"><img src="assets/o13.png" class="chat-screen" loading="lazy"></div>
+                    <div class="swiper-slide"><img src="assets/o14.png" class="chat-screen" loading="lazy"></div>
+                    <div class="swiper-slide"><img src="assets/o15.png" class="chat-screen" loading="lazy"></div>
+                    <div class="swiper-slide"><img src="assets/o16.png" class="chat-screen" loading="lazy"></div>
+                    <div class="swiper-slide"><img src="assets/o17.png" class="chat-screen" loading="lazy"></div>
+                    <div class="swiper-slide"><img src="assets/o18.png" class="chat-screen" loading="lazy"></div>
+                    <div class="swiper-slide"><img src="assets/o19.png" class="chat-screen" loading="lazy"></div>
+                    <div class="swiper-slide"><img src="assets/o20.png" class="chat-screen" loading="lazy"></div>
+                </div>
+                <div class="swiper-pagination"></div>
+            </div>
+        </section>
+
+        <section class="bonus-intro-section reveal">
+            <h3 class="bonus-wait-title">Подождите, это еще <span class="text-purple">не всё!</span></h3>
+            <p class="bonus-wait-text">Заказывайте сейчас — и получите <span class="text-purple">3 эксклюзивных бонуса!</span></p>
+        </section>
+
+        <section class="bonus-slider-section reveal">
+            <div class="swiper bonusSwiper">
+                <div class="swiper-wrapper">
+                    <div class="swiper-slide">
+                        <div class="bonus-slide-card">
+                            <img src="assets/bonus2.webp" class="bonus-slide-img" alt="Бонус 1" loading="lazy">
+                            <div class="bonus-slide-content">
+                                <div class="bonus-slide-tag">БОНУС 1</div>
+                                <h4 class="bonus-slide-title">СПИСОК<br>ПОКУПОК</h4>
+                                <p class="bonus-slide-desc">Списки продуктов экономят время и упрощают готовку</p>
+                                <div class="bonus-price-row">
+                                    <span class="bonus-slide-price">$10</span>
+                                    <span class="bonus-slide-free">БЕСПЛАТНО</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="swiper-slide">
+                        <div class="bonus-slide-card">
+                            <img src="assets/bonus3.webp" class="bonus-slide-img" alt="Бонус 2" loading="lazy">
+                            <div class="bonus-slide-content">
+                                <div class="bonus-slide-tag">БОНУС 2</div>
+                                <h4 class="bonus-slide-title">12 ПОЛЕЗНЫХ<br>СОУСОВ</h4>
+                                <p class="bonus-slide-desc">Оригинальные рецепты соусов в полезной версии</p>
+                                <div class="bonus-price-row">
+                                    <span class="bonus-slide-price">$10</span>
+                                    <span class="bonus-slide-free">БЕСПЛАТНО</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="swiper-slide">
+                        <div class="bonus-slide-card">
+                            <img src="assets/bonus4.webp" class="bonus-slide-img" alt="Бонус 3" loading="lazy">
+                            <div class="bonus-slide-content">
+                                <div class="bonus-slide-tag">БОНУС 3</div>
+                                <h4 class="bonus-slide-title">10 ПОЛЕЗНЫХ<br>СМУЗИ</h4>
+                                <p class="bonus-slide-desc">Для энергии, лёгкости и очищения организма</p>
+                                <div class="bonus-price-row">
+                                    <span class="bonus-slide-price">$10</span>
+                                    <span class="bonus-slide-free">БЕСПЛАТНО</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="swiper-pagination"></div>
+            </div>
+        </section>
+
+        <section class="super-offer-container reveal" id="final-offer">
+            <h3 class="final-big-title">
+                130 ВКУСНЫХ РЕЦЕПТОВ <br> И <span class="text-purple">3 УНИКАЛЬНЫХ БОНУСА</span>
+            </h3>
+            <img src="assets/all_bundle.png" alt="Весь набор книг" class="bundle-img" loading="lazy">
+            <p class="offer-subtitle">
+                ЛЕГКО ГОТОВИТЬ, ПОЛЕЗНО ДЛЯ ЗДОРОВЬЯ — ИДЕАЛЬНО ДЛЯ ЕЖЕДНЕВНОГО РАЦИОНА!
+            </p>
+            <div class="bonuses-list-box">
+                <div class="bonus-row"><div class="bonus-check">✔</div><div>Бонус: Бесплатно «Списки закупок» ($10)</div></div>
+                <div class="bonus-row"><div class="bonus-check">✔</div><div>Бонус: Бесплатно «12 полезных соусов» ($10)</div></div>
+                <div class="bonus-row"><div class="bonus-check">✔</div><div>Бонус: Бесплатно «10 полезных смузи» ($10)</div></div>
+            </div>
+            <div class="price-final-block">
+                <span class="price-final-big">$9,99</span>
+                <span class="price-final-old">$50</span>
+            </div>
+            <p class="timer-label">До окончания акции осталось:</p>
+            <div class="timer-box">
+                <div class="timer-part"><span class="timer-num">00</span><span class="timer-text">Часов</span></div>
+                <div class="timer-colon">:</div>
+                <div class="timer-part"><span class="timer-num" id="minutes">10</span><span class="timer-text">Минут</span></div>
+                <div class="timer-colon">:</div>
+                <div class="timer-part"><span class="timer-num" id="seconds">00</span><span class="timer-text">Секунд</span></div>
+            </div>
+            <button class="cta-button final-purple-btn" id="payBtn" onclick="goToPayment()">ПОЛУЧИТЬ КНИГУ СЕЙЧАС!</button>
+            <div class="payment-row-final">
+                <img src="assets/payments.png" alt="Payments" style="width: 100%; max-width: 250px;" loading="lazy">
+            </div>
+        </section>
+
+        <section class="faq-section reveal">
+            <h3 class="faq-title">ВОПРОС ОТВЕТ</h3>
+            
+            <div class="faq-container">
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span class="faq-question-text">СЛОЖНЫ ЛИ РЕЦЕПТЫ В ЭТОЙ КНИГЕ?</span>
+                        <div class="faq-toggle"></div>
+                    </div>
+                    <div class="faq-answer">
+                        Нет, все рецепты максимально простые. Мы специально подбирали блюда, которые готовятся из доступных продуктов и не требуют навыков шеф-повара. Вы справитесь, даже если готовите редко.
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span class="faq-question-text">КАК БЫСТРО Я УВИЖУ РЕЗУЛЬТАТЫ ПРИМЕНЕНИЯ ЭТИХ РЕЦЕПТОВ?</span>
+                        <div class="faq-toggle"></div>
+                    </div>
+                    <div class="faq-answer">
+                        Многие клиенты отмечают легкость и прилив энергии уже через 3-5 дней правильного питания. Видимые изменения фигуры зависят от вашего исходного состояния, но улучшения самочувствия вы заметите почти сразу.
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span class="faq-question-text">У МЕНЯ НЕТ ВРЕМЕНИ НА ПРИГОТОВЛЕНИЕ БЛЮД. ПОДОЙДЕТ ЛИ МНЕ ЭТА КНИГА?</span>
+                        <div class="faq-toggle"></div>
+                    </div>
+                    <div class="faq-answer">
+                        Да! Это одно из главных преимуществ. Большинство рецептов готовятся всего за 10–20 минут. Это часто быстрее, чем выбрать и дождаться доставку еды.
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span class="faq-question-text">ЕСТЬ ЛИ В КНИГЕ КАЛОРИЙНОСТЬ БЛЮД И ИХ БЖУ?</span>
+                        <div class="faq-toggle"></div>
+                    </div>
+                    <div class="faq-answer">
+                        Конечно. К каждому рецепту прилагается полный расчет КБЖУ (калории, белки, жиры, углеводы), чтобы вам было удобно следить за своим рационом.
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span class="faq-question-text">ПОДОЙДЕТ ЛИ МНЕ КНИГА, ЕСЛИ Я ХОЧУ ПОХУДЕТЬ?</span>
+                        <div class="faq-toggle"></div>
+                    </div>
+                    <div class="faq-answer">
+                        Да, рецепты сбалансированы так, чтобы вы получали все нутриенты, наедались, но при этом не перебирали калорий. Это идеальная база для комфортного и здорового похудения.
+                    </div>
+                </div>
+            </div>
+
+            <img src="assets/krug.png" alt="Healthy Food" class="faq-bottom-img" loading="lazy">
+        </section>
+
+        <footer class="site-footer" style="text-align: center; padding: 40px 20px; margin-top: 20px; border-top: 1px solid #eee;">
+    
+            <div class="footer-icon-circle" style="margin-bottom: 10px;">
+                <img src="assets/tg.png" alt="Telegram" loading="lazy" style="width: 40px; height: 40px;">
+            </div>
+            <div class="footer-company" style="font-weight: bold; margin-bottom: 5px; color: #333;">HEALTHY BOOK LTD</div>
+            
+        
+            <div style="margin-bottom: 15px;">
+                <a href="policy.html" style="color: #333; text-decoration: none; font-size: 14px; font-weight: 600; margin: 0 10px;">Оферта</a>
+                <span style="color: #ccc;">|</span>
+                <a href="policy.html" style="color: #333; text-decoration: none; font-size: 14px; font-weight: 600; margin: 0 10px;">Возврат</a>
+                <span style="color: #ccc;">|</span>
+                <a href="policy.html#contacts" style="color: #333; text-decoration: none; font-size: 14px; font-weight: 600; margin: 0 10px;">Контакты</a>
+            </div>
+        
+            <p style="font-size: 11px; color: #999; max-width: 280px; margin: 0 auto; line-height: 1.5;">
+                Нажимая кнопку оплаты, вы принимаете условия авторского права. Контент является цифровым и не подлежит возврату после получения доступа.
+            </p>
+            
+            <p style="font-size: 10px; color: #bbb; margin-top: 20px; letter-spacing: 1px;">
+                © 2026 HEALTHY BOOK.
+            </p>
+        </footer>
+        </footer>
+
+    </div> 
+    
+    <div class="sticky-bottom-bar">
+        <button class="sticky-btn" onclick="goToPayment()">ПОЛУЧИТЬ КНИГУ СО СКИДКОЙ</button>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <script id="widget-wfp-script" language="javascript" type="text/javascript" src="https://secure.wayforpay.com/server/pay-widget.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.1.1/crypto-js.min.js"></script>
+    
+    <script>
+        var productSwiper;
+
+        function scrollToTarget() {
+            const target = document.getElementById('final-offer');
+            if (target) {
+                target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            }
+        }
+        
+        // --- ЛОГИКА ОПЛАТЫ НА СТОРОНЕ КЛИЕНТА ---
+        function goToPayment() {
+            if (typeof Wayforpay === 'undefined' || typeof CryptoJS === 'undefined') {
+                alert("Компоненты оплаты загружаются. Подождите секунду и нажмите снова.");
+                return;
+            }
+
+            // Данные твоего аккаунта и ключи
+            const merchantAccount = "healthy_book_netlify_app";
+            const secretKey = "5f6f23dc22ca634d2ef7f74a8dc8eff3252b9bdb"; 
+            
+            // Динамический домен (будет работать и на localhost, и на рабочем домене)
+            const merchantDomainName = window.location.hostname || "www.healthmak.com"; 
+
+            // Параметры товара
+            const amount = "9.99";
+            const currency = "USD";
+            const productName = "Книга: 130 рецептов от диетолога + 3 бонуса: Список покупок, 12 полезных соусов и 10 полезных смузи";
+            const productCount = "1";
+            const productPrice = "9.99";
+
+            // Генерация уникального заказа
+            const orderDate = Math.floor(Date.now() / 1000).toString();
+            const orderReference = "ORDER_" + orderDate + "_" + Math.floor(Math.random() * 1000);
+
+            // Создание строки для подписи
+            const stringToSign = `${merchantAccount};${merchantDomainName};${orderReference};${orderDate};${amount};${currency};${productName};${productCount};${productPrice}`;
+
+            // Генерация MD5 хэша прямо в браузере с помощью библиотеки crypto-js
+            const signature = CryptoJS.HmacMD5(stringToSign, secretKey).toString();
+
+            // Инициализация виджета
+            if (!window.wayforpayInstance) {
+                window.wayforpayInstance = new Wayforpay();
+            }
+            
+            // Запуск окна оплаты
+            window.wayforpayInstance.run({
+                merchantAccount : merchantAccount, 
+                merchantDomainName : merchantDomainName, 
+                authorizationType : "SimpleSignature",
+                merchantSignature : signature, // Сгенерированный хэш
+                orderReference : orderReference, 
+                orderDate : orderDate, 
+                amount : amount, 
+                currency : currency, 
+                productName : [productName], // Важно: для виджета названия передаются массивом
+                productPrice : [productPrice], 
+                productCount : [productCount], 
+                clientFirstName : "Клиент",
+                clientLastName : "Сайта",
+                clientEmail : "",
+                clientPhone: "380000000000",
+                language: "RU"
+            },
+            function (response) {
+                window.location.href = "thanks.html";
+            },
+            function (response) {
+                console.error("Оплата отклонена", response);
+            },
+            function (response) {
+                console.warn("В обработке", response);
+            });
+        }
+        
+        function goToSlide(index) {
+            if (productSwiper) {
+                productSwiper.slideTo(index);
+            }
+        }
+
+        document.addEventListener('DOMContentLoaded', function () {
+            productSwiper = new Swiper(".mainProductSwiper", {
+                slidesPerView: 1,
+                spaceBetween: 0,
+                effect: 'fade',
+                fadeEffect: { crossFade: true },
+                grabCursor: true,
+                on: {
+                    slideChange: function () {
+                        const index = this.activeIndex;
+                        const thumbs = document.querySelectorAll('.thumb-box');
+                        thumbs.forEach(t => t.classList.remove('active-thumb'));
+                        if (thumbs[index]) {
+                            thumbs[index].classList.add('active-thumb');
+                        }
+                    }
+                }
+            });
+
+            var swiperTestimonials = new Swiper(".testimonialSwiper", {
+                slidesPerView: 1.25, 
+                centeredSlides: true,
+                spaceBetween: 20,
+                loop: true,
+                grabCursor: true,
+                pagination: { el: ".swiper-pagination", dynamicBullets: true },
+            });
+
+            var swiperBonuses = new Swiper(".bonusSwiper", {
+                slidesPerView: 1.15, 
+                spaceBetween: 20,    
+                centeredSlides: true, 
+                pagination: { el: ".swiper-pagination", dynamicBullets: true },
+            });
+
+            var tenMinutes = 60 * 10, 
+                displayMinutes = document.querySelector('#minutes'),
+                displaySeconds = document.querySelector('#seconds');
+            
+            var timer = tenMinutes, minutes, seconds;
+            setInterval(function () {
+                minutes = parseInt(timer / 60, 10);
+                seconds = parseInt(timer % 60, 10);
+                minutes = minutes < 10 ? "0" + minutes : minutes;
+                seconds = seconds < 10 ? "0" + seconds : seconds;
+                displayMinutes.textContent = minutes;
+                displaySeconds.textContent = seconds;
+                if (--timer < 0) timer = 0; 
+            }, 1000);
+
+            const faqQuestions = document.querySelectorAll('.faq-question');
+            faqQuestions.forEach(question => {
+                question.addEventListener('click', () => {
+                    const item = question.parentNode;
+                    item.classList.toggle('active');
+                });
+            });
+
+            function reveal() {
+                var reveals = document.querySelectorAll(".reveal");
+                for (var i = 0; i < reveals.length; i++) {
+                    var windowHeight = window.innerHeight;
+                    var elementTop = reveals[i].getBoundingClientRect().top;
+                    var elementVisible = 50;
+                    if (elementTop < windowHeight - elementVisible) {
+                        reveals[i].classList.add("active");
+                    }
+                }
+            }
+            window.addEventListener("scroll", reveal);
+            reveal(); 
+
+            // Скрипт для плавающей кнопки
+            const stickyBar = document.querySelector('.sticky-bottom-bar');
+            const triggerElement = document.querySelector('.product-gallery-wrapper');
+
+            if (stickyBar && triggerElement) {
+                const observer = new IntersectionObserver((entries) => {
+                    entries.forEach(entry => {
+                        if (!entry.isIntersecting && entry.boundingClientRect.top < 0) {
+                            stickyBar.classList.add('show-sticky');
+                        } else {
+                            stickyBar.classList.remove('show-sticky');
+                        }
+                    });
+                }, { 
+                    root: null, 
+                    threshold: 0 
+                });
+
+                observer.observe(triggerElement);
+            }
+        });
+    </script>
+</body>
+</html>
