@@ -443,17 +443,28 @@
     clientEmail : "",
     clientPhone: "380000000000",
     language: "RU",
-    returnUrl: "https://healthy-book.vercel.app/thanks.html?success=1" // Строго обязательный параметр для выхода из банковского окна на iOS
+    // 1. Обязательно добавьте этот параметр, он скажет WayForPay куда слать юзера
+    returnUrl: "https://healthy-book.vercel.app/thanks.html?success=1"
 },
 function (response) {
-    // Жесткий абсолютный редирект
-    window.location.href = "https://healthy-book.vercel.app/thanks.html?success=1";
+    // 2. Сначала ПРИНУДИТЕЛЬНО закрываем виджет, если он еще открыт
+    if (typeof window.wayforpayInstance.close === 'function') {
+        window.wayforpayInstance.close();
+    }
+    
+    // 3. Делаем редирект через таймаут в 500мс, чтобы браузер успел «очнуться»
+    setTimeout(function() {
+        window.location.href = "https://healthy-book.vercel.app/thanks.html?success=1";
+    }, 500);
 },
 function (response) {
     console.error("Оплата отклонена", response);
+    // Здесь можно добавить alert("Ошибка оплаты"), чтобы юзер понимал, что произошло
 },
 function (response) {
     console.warn("В обработке", response);
+    // Если статус "Pending", тоже можно кинуть на страницу ожидания
+    window.location.href = "https://healthy-book.vercel.app/thanks.html?success=1";
 });
         }
         
