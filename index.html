@@ -392,80 +392,60 @@
         // --- ЛОГИКА ОПЛАТЫ НА СТОРОНЕ КЛИЕНТА ---
         function goToPayment() {
             if (typeof Wayforpay === 'undefined' || typeof CryptoJS === 'undefined') {
-                alert("Компоненты оплаты загружаются. Подождите секунду и нажмите снова.");
+                alert("Компоненты оплаты загружаются. Подождите секунду.");
                 return;
             }
 
-            // Данные твоего аккаунта и ключи
             const merchantAccount = "healthy_book_netlify_app";
             const secretKey = "5f6f23dc22ca634d2ef7f74a8dc8eff3252b9bdb"; 
-            
-            // Динамический домен (будет работать и на localhost, и на рабочем домене)
-            const merchantDomainName = window.location.hostname || "www.healthmak.com"; 
+            const merchantDomainName = window.location.hostname || "healthy-book.vercel.app"; 
 
-            // Параметры товара
             const amount = "0.30";
             const currency = "USD";
-            const productName = "Книга: 130 рецептов от диетолога + 3 бонуса: Список покупок, 12 полезных соусов и 10 полезных смузи";
+            const productName = "Книга: 130 рецептов от диетолога";
             const productCount = "1";
             const productPrice = "0.30";
 
-            // Генерация уникального заказа
             const orderDate = Math.floor(Date.now() / 1000).toString();
             const orderReference = "ORDER_" + orderDate + "_" + Math.floor(Math.random() * 1000);
 
-            // Создание строки для подписи
             const stringToSign = `${merchantAccount};${merchantDomainName};${orderReference};${orderDate};${amount};${currency};${productName};${productCount};${productPrice}`;
-
-            // Генерация MD5 хэша прямо в браузере с помощью библиотеки crypto-js
             const signature = CryptoJS.HmacMD5(stringToSign, secretKey).toString();
 
-            // Инициализация виджета
-            if (!window.wayforpayInstance) {
-                window.wayforpayInstance = new Wayforpay();
-            }
+            const wayforpay = new Wayforpay();
             
-            // Запуск окна оплаты
-            window.wayforpayInstance.run({
-    merchantAccount : merchantAccount, 
-    merchantDomainName : merchantDomainName, 
-    authorizationType : "SimpleSignature",
-    merchantSignature : signature, 
-    orderReference : orderReference, 
-    orderDate : orderDate, 
-    amount : amount, 
-    currency : currency, 
-    productName : [productName], 
-    productPrice : [productPrice], 
-    productCount : [productCount], 
-    clientFirstName : "Клиент",
-    clientLastName : "Сайта",
-    clientEmail : "",
-    clientPhone: "380000000000",
-    language: "RU",
-    // 1. Обязательно добавьте этот параметр, он скажет WayForPay куда слать юзера
-    returnUrl: "https://healthy-book.vercel.app/thanks.html?success=1"
-},
-function (response) {
-    // 2. Сначала ПРИНУДИТЕЛЬНО закрываем виджет, если он еще открыт
-    if (typeof window.wayforpayInstance.close === 'function') {
-        window.wayforpayInstance.close();
-    }
-    
-    // 3. Делаем редирект через таймаут в 500мс, чтобы браузер успел «очнуться»
-    setTimeout(function() {
-        window.location.href = "https://healthy-book.vercel.app/thanks.html?success=1";
-    }, 500);
-},
-function (response) {
-    console.error("Оплата отклонена", response);
-    // Здесь можно добавить alert("Ошибка оплаты"), чтобы юзер понимал, что произошло
-},
-function (response) {
-    console.warn("В обработке", response);
-    // Если статус "Pending", тоже можно кинуть на страницу ожидания
-    window.location.href = "https://healthy-book.vercel.app/thanks.html?success=1";
-});
+            wayforpay.run({
+                merchantAccount : merchantAccount, 
+                merchantDomainName : merchantDomainName, 
+                authorizationType : "SimpleSignature",
+                merchantSignature : signature, 
+                orderReference : orderReference, 
+                orderDate : orderDate, 
+                amount : amount, 
+                currency : currency, 
+                productName : [productName], 
+                productPrice : [productPrice], 
+                productCount : [productCount], 
+                clientFirstName : "Клиент",
+                clientLastName : "Сайта",
+                language: "RU",
+                returnUrl: "https://healthy-book.vercel.app/thanks.html?success=1"
+            },
+            function (response) {
+                // Успешная оплата
+                const finalUrl = "https://healthy-book.vercel.app/thanks.html?success=1&t=" + Date.now();
+                setTimeout(function() {
+                    window.location.replace(finalUrl);
+                }, 400);
+            },
+            function (response) {
+                console.error("Оплата отклонена", response);
+            },
+            function (response) {
+                // В обработке
+                const finalUrl = "https://healthy-book.vercel.app/thanks.html?success=1&status=pending&t=" + Date.now();
+                window.location.replace(finalUrl);
+            });
         }
         
         function goToSlide(index) {
@@ -475,6 +455,7 @@ function (response) {
         }
 
         document.addEventListener('DOMContentLoaded', function () {
+            // Инициализация Swiper и остальная логика (без изменений)
             productSwiper = new Swiper(".mainProductSwiper", {
                 slidesPerView: 1,
                 spaceBetween: 0,
@@ -493,52 +474,51 @@ function (response) {
                 }
             });
 
-            var swiperTestimonials = new Swiper(".testimonialSwiper", {
+            new Swiper(".testimonialSwiper", {
                 slidesPerView: 1.25, 
                 centeredSlides: true,
                 spaceBetween: 20,
                 loop: true,
-                grabCursor: true,
                 pagination: { el: ".swiper-pagination", dynamicBullets: true },
             });
 
-            var swiperBonuses = new Swiper(".bonusSwiper", {
+            new Swiper(".bonusSwiper", {
                 slidesPerView: 1.15, 
                 spaceBetween: 20,    
                 centeredSlides: true, 
                 pagination: { el: ".swiper-pagination", dynamicBullets: true },
             });
 
+            // Таймер
             var tenMinutes = 60 * 10, 
                 displayMinutes = document.querySelector('#minutes'),
-                displaySeconds = document.querySelector('#seconds');
-            
-            var timer = tenMinutes, minutes, seconds;
+                displaySeconds = document.querySelector('#seconds'),
+                timer = tenMinutes, minutes, seconds;
+
             setInterval(function () {
-                minutes = parseInt(timer / 60, 10);
-                seconds = parseInt(timer % 60, 10);
-                minutes = minutes < 10 ? "0" + minutes : minutes;
-                seconds = seconds < 10 ? "0" + seconds : seconds;
-                displayMinutes.textContent = minutes;
-                displaySeconds.textContent = seconds;
-                if (--timer < 0) timer = 0; 
+                if (displayMinutes && displaySeconds) {
+                    minutes = parseInt(timer / 60, 10);
+                    seconds = parseInt(timer % 60, 10);
+                    displayMinutes.textContent = minutes < 10 ? "0" + minutes : minutes;
+                    displaySeconds.textContent = seconds < 10 ? "0" + seconds : seconds;
+                    if (--timer < 0) timer = 0;
+                }
             }, 1000);
 
-            const faqQuestions = document.querySelectorAll('.faq-question');
-            faqQuestions.forEach(question => {
+            // FAQ
+            document.querySelectorAll('.faq-question').forEach(question => {
                 question.addEventListener('click', () => {
-                    const item = question.parentNode;
-                    item.classList.toggle('active');
+                    question.parentNode.classList.toggle('active');
                 });
             });
 
+            // Reveal анимация
             function reveal() {
                 var reveals = document.querySelectorAll(".reveal");
                 for (var i = 0; i < reveals.length; i++) {
                     var windowHeight = window.innerHeight;
                     var elementTop = reveals[i].getBoundingClientRect().top;
-                    var elementVisible = 50;
-                    if (elementTop < windowHeight - elementVisible) {
+                    if (elementTop < windowHeight - 50) {
                         reveals[i].classList.add("active");
                     }
                 }
@@ -546,10 +526,9 @@ function (response) {
             window.addEventListener("scroll", reveal);
             reveal(); 
 
-            // Скрипт для плавающей кнопки
+            // Sticky Bar
             const stickyBar = document.querySelector('.sticky-bottom-bar');
             const triggerElement = document.querySelector('.product-gallery-wrapper');
-
             if (stickyBar && triggerElement) {
                 const observer = new IntersectionObserver((entries) => {
                     entries.forEach(entry => {
@@ -559,11 +538,7 @@ function (response) {
                             stickyBar.classList.remove('show-sticky');
                         }
                     });
-                }, { 
-                    root: null, 
-                    threshold: 0 
-                });
-
+                }, { threshold: 0 });
                 observer.observe(triggerElement);
             }
         });
