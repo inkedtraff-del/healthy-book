@@ -427,32 +427,34 @@
             
             // Запуск окна оплаты
             window.wayforpayInstance.run({
-                merchantAccount : merchantAccount, 
-                merchantDomainName : merchantDomainName, 
-                authorizationType : "SimpleSignature",
-                merchantSignature : signature, // Сгенерированный хэш
-                orderReference : orderReference, 
-                orderDate : orderDate, 
-                amount : amount, 
-                currency : currency, 
-                productName : [productName], // Важно: для виджета названия передаются массивом
-                productPrice : [productPrice], 
-                productCount : [productCount], 
-                clientFirstName : "Клиент",
-                clientLastName : "Сайта",
-                clientEmail : "",
-                clientPhone: "380000000000",
-                language: "RU"
-            },
-            function (response) {
-                window.location.href = "thanks.html";
-            },
-            function (response) {
-                console.error("Оплата отклонена", response);
-            },
-            function (response) {
-                console.warn("В обработке", response);
-            });
+    merchantAccount : merchantAccount, 
+    merchantDomainName : merchantDomainName, 
+    authorizationType : "SimpleSignature",
+    merchantSignature : signature, 
+    orderReference : orderReference, 
+    orderDate : orderDate, 
+    amount : amount, 
+    currency : currency, 
+    productName : [productName], 
+    productPrice : [productPrice], 
+    productCount : [productCount], 
+    clientFirstName : "Клиент",
+    clientLastName : "Сайта",
+    clientEmail : "",
+    clientPhone: "380000000000",
+    language: "RU",
+    returnUrl: "https://healthy-book.vercel.app/thanks.html?success=1" // Строго обязательный параметр для выхода из банковского окна на iOS
+},
+function (response) {
+    // Жесткий абсолютный редирект
+    window.location.href = "https://healthy-book.vercel.app/thanks.html?success=1";
+},
+function (response) {
+    console.error("Оплата отклонена", response);
+},
+function (response) {
+    console.warn("В обработке", response);
+});
         }
         
         function goToSlide(index) {
