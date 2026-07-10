@@ -5,16 +5,95 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Ваш заказ готов!</title>
     <style>
-        body { background-color: #f9f9f9; display: flex; justify-content: center; align-items: center; height: 100vh; margin: 0; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; }
-        .thanks-card { background: white; padding: 40px 30px; border-radius: 20px; box-shadow: 0 10px 30px rgba(0,0,0,0.05); text-align: center; max-width: 400px; width: 90%; }
-        .icon-check { width: 70px; height: 70px; background: #8e44ad; color: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 35px; margin: 0 auto 20px; }
-        h1 { color: #333; font-size: 24px; margin-bottom: 15px; text-transform: uppercase; }
-        p { color: #555; font-size: 17px; line-height: 1.6; margin-bottom: 30px; }
-        .download-btn { background: #8e44ad; color: white; text-decoration: none; padding: 20px 30px; border-radius: 50px; font-weight: bold; display: block; font-size: 18px; box-shadow: 0 4px 15px rgba(142, 68, 173, 0.3); transition: all 0.2s; border: none; width: 100%; cursor: pointer; }
-        .download-btn:active { transform: scale(0.96); }
-        .footer-note { margin-top: 25px; font-size: 13px; color: #999; }
+        body { 
+            background-color: #f8f9fa; 
+            display: flex; justify-content: center; align-items: center; 
+            min-height: 100vh; margin: 0; 
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; 
+            padding: 20px; box-sizing: border-box; 
+        }
+        .thanks-card { 
+            background: #ffffff; 
+            padding: 40px 30px; 
+            border-radius: 24px; 
+            box-shadow: 0 20px 40px rgba(138, 43, 226, 0.08); 
+            text-align: center; 
+            max-width: 440px; width: 100%; 
+        }
+        
+        /* Иконка галочки */
+        .icon-check-wrapper { 
+            width: 64px; height: 64px; 
+            background: #8A2BE2; 
+            color: #ffffff; 
+            border-radius: 50%; 
+            display: flex; align-items: center; justify-content: center; 
+            margin: 0 auto 20px; 
+            box-shadow: 0 8px 20px rgba(138, 43, 226, 0.3);
+        }
+        .icon-svg { width: 32px; height: 32px; }
+        
+        h1 { 
+            color: #333333; 
+            font-size: 28px; 
+            font-weight: 800;
+            margin-bottom: 16px; 
+            letter-spacing: -0.5px;
+            text-transform: uppercase;
+        }
+        
+        /* Выразительный текст с инструкцией */
+        .instruction-text {
+            color: #111111;
+            font-size: 18px;
+            font-weight: 700;
+            line-height: 1.4;
+            margin-bottom: 24px;
+            padding: 0 10px;
+        }
+        
+        .downloads-container { 
+            display: flex; flex-direction: column; gap: 14px; 
+        }
+        
+        /* Главная кнопка (Фиолетовая) */
+        .download-btn { 
+            background: #8A2BE2; 
+            color: #ffffff; 
+            text-decoration: none; 
+            padding: 18px 20px; 
+            border-radius: 14px; 
+            font-weight: 800; 
+            font-size: 16px; 
+            transition: all 0.2s ease; 
+            border: none; 
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            box-shadow: 0 6px 15px rgba(138, 43, 226, 0.25);
+            text-transform: uppercase;
+        }
+        .download-btn:active { transform: scale(0.97); box-shadow: 0 3px 8px rgba(138, 43, 226, 0.2); }
+        
+        /* Бонусные кнопки (Салатовые) */
+        .download-btn.bonus { 
+            background: #D4E157; 
+            color: #222222; 
+            box-shadow: 0 4px 10px rgba(212, 225, 87, 0.3);
+        }
+        .download-btn.bonus:active { 
+            background: #c5d346; 
+        }
+        
+        .footer-note { 
+            margin-top: 28px; 
+            font-size: 13px; 
+            color: #999999; 
+            line-height: 1.4; 
+        }
     </style>
 
+    <!-- Meta Pixel Code -->
     <script>
       !function(f,b,e,v,n,t,s)
       {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
@@ -25,57 +104,60 @@
       s.parentNode.insertBefore(t,s)}(window, document,'script',
       'https://connect.facebook.net/en_US/fbevents.js');
       
-      // Инициализация пикселя
-      fbq('init', '954112840430531'); 
+      fbq('init', '1728093011528704'); 
       fbq('track', 'PageView');
       
-      // ФИКСАЦИЯ ПРОДАЖИ (Срабатывает мгновенно при загрузке страницы)
       fbq('track', 'Purchase', {
-        value: 9.99,
-        currency: 'USD',
+        value: 11.99,
+        currency: 'EUR',
         content_name: 'Книга 130 рецептов + 3 бонуса',
         content_type: 'product'
       });
     </script>
     <noscript>
-      <img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=954112840430531&ev=PageView&noscript=1" />
+      <img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=1728093011528704&ev=PageView&noscript=1" />
     </noscript>
-    </head>
+    <!-- End Meta Pixel Code -->
+</head>
 <body>
 
     <div class="thanks-card">
-        <div class="icon-check">✓</div>
-        <h1>ОПЛАТА ПРОШЛА!</h1>
-        <p>Ваша книга «130 рецептов» и бонусы готовы. Нажмите кнопку ниже, чтобы сохранить их на телефон:</p>
+        <!-- Ровная галочка -->
+        <div class="icon-check-wrapper">
+            <svg class="icon-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="20 6 9 17 4 12"></polyline>
+            </svg>
+        </div>
         
-        <button onclick="downloadAndRedirect()" class="download-btn">
-            СКАЧАТЬ МАТЕРИАЛЫ (АРХИВ)
-        </button>
+        <h1>ОПЛАТА ПРОШЛА!</h1>
+        
+        <!-- Выразительный, но спокойный текст -->
+        <div class="instruction-text">
+            Ваша книга и бонусы готовы.<br>Нажимайте на кнопки по очереди и скачайте каждый файл отдельно:
+        </div>
+        
+        <div class="downloads-container">
+            <a href="assets/130_receptov.pdf" download="130_Receptov.pdf" class="download-btn">
+                СКАЧАТЬ КНИГУ 130 РЕЦЕПТОВ
+            </a>
+            
+            <a href="assets/spisok_pokupok.pdf" download="Spisok_pokupok.pdf" class="download-btn bonus">
+                СКАЧАТЬ СПИСОК ПОКУПОК
+            </a>
+            
+            <a href="assets/12_sousov.pdf" download="12_Sousov.pdf" class="download-btn bonus">
+                СКАЧАТЬ 12 ПОЛЕЗНЫХ СОУСОВ
+            </a>
+            
+            <a href="assets/10_smuzi.pdf" download="10_Smuzi.pdf" class="download-btn bonus">
+                СКАЧАТЬ 10 ПОЛЕЗНЫХ СМУЗИ
+            </a>
+        </div>
         
         <div class="footer-note">
-            После нажатия начнется загрузка, и вы вернетесь на главную страницу.
+            Все файлы сохранятся в папку «Загрузки» или «Файлы» на вашем устройстве.
         </div>
     </div>
-
-    <script>
-        function downloadAndRedirect() {
-            // 1. Прямая ссылка на скачивание с Google Диска
-            const fileUrl = "https://drive.google.com/uc?export=download&id=1OIATgv95T5Pr4r9KBM4TdDn4FziXHYAO";
-            
-            // 2. Инициируем скачивание
-            const link = document.createElement('a');
-            link.href = fileUrl;
-            link.target = "_blank"; 
-            document.body.appendChild(link);
-            link.click();
-            document.body.removeChild(link);
-
-            // 3. Возврат на основной лендинг через 3 секунды
-            setTimeout(function() {
-                window.location.href = "index.html"; 
-            }, 3000);
-        }
-    </script>
 
 </body>
 </html>
